@@ -5,13 +5,17 @@ import matplotlib.pyplot as plt
 connection = sqlite3.connect('climate.db')
 cursor = connection.cursor()
 
-connection.close() # Close the database connection
+sql_command = 'SELECT Year, CO2, Temperature FROM ClimateData'
+cursor.execute(sql_command)
+data = cursor.fetchall() # return all rows of a query result as a list
 
-        
 years = []
 co2 = []
 temp = []
 
+connection.close()  # close the database connection
+
+# plot the data
 plt.subplot(2, 1, 1)
 plt.plot(years, co2, 'b--') 
 plt.title("Climate Data") 
