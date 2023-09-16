@@ -13,6 +13,12 @@ years = []
 co2 = []
 temp = []
 
+for row in data:
+    [year_val, co2_val, temp_val] = row # unpack the tuple into 3 variables
+    years.append(year_val)
+    co2.append(co2_val)
+    temp.append(temp_val)
+
 connection.close()  # close the database connection
 
 # plot the data
